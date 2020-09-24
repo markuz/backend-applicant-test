@@ -1,0 +1,36 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+    <form method="POST">
+    <table>
+    {% for field in form %}
+        <tr>
+        <td>{{ field.label }}</td>
+        <td>{{ field }}
+            {% if field.errors %}
+                <ul>
+                {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        </td>
+        </tr>
+    {% endfor %}
+    <tr>
+        <td>
+            Etiquetas
+        </td>
+        <td>
+            <input type="text" name="tags">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="submit" value="guardar">
+        </td>
+    </tr>
+    </table>
+    </form>
+{% endblock content %}
